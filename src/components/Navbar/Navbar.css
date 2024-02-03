@@ -1,0 +1,136 @@
+nav {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-content #logo {
+    max-width: 5rem;
+}
+
+.navbar-content #logo img {
+    width: 100%;
+}
+
+.navbar-content ul {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-content ul li {
+    list-style-type: none;
+    margin-left: 2rem;
+}
+
+.navbar-content .menu-links ul li:hover {
+    cursor: pointer;
+}
+
+.navbar-content .menu-links ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black
+}
+
+.navbar-content .menu-links ul li a:hover {
+    text-decoration: underline;
+}
+
+/* mobile menu icons */
+.navbar-content .mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+
+@media(max-width: 600px) {
+    .navbar-content .mobile-menu {
+        display: block;
+    }
+
+    .navbar-content .menu-links {
+        display: none;
+    }
+
+}
+
+/* mobile side menu */
+.mobile-sidemenu {
+    background-color: rgb(182, 179, 179);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    width: 300px;
+    height: 100vh;
+    transition: all 0.3s;
+    transform: translateX(100%);
+    /* overflow-y: hidden;  ??? */
+}
+
+.mobile-sidemenu-show {
+    transform: translateX(0);
+}
+
+.mobile-sidemenu .sidemenu-links {
+    height: 100%;
+}
+
+.mobile-sidemenu .sidemenu-links ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.mobile-sidemenu .sidemenu-links ul li {
+    width: 100%;
+    list-style-type: none;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 1px dotted black;
+    text-align: right;
+}
+
+.mobile-sidemenu .sidemenu-links ul li a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.2s;
+}
+
+.mobile-sidemenu .sidemenu-links ul li a:hover {
+    color: white;
+}
+
+.mobile-sidemenu #close-btn {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mobile-sidemenu #close-btn:hover {
+    color: white;
+}
+
+/* overlay */
+.overlay {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(173, 173, 173, 0.616);
+}
+
+.overlay-show {
+    display: block;
+}
