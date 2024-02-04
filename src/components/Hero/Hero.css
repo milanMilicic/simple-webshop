@@ -1,0 +1,97 @@
+.hero {
+    padding-top: 10rem;
+}
+
+.hero .hero-content {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas: "one two three"
+        "one two three-low";
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 30rem;
+}
+
+@media(max-width: 800px) {
+    .hero .hero-content {
+        grid-template-areas: "one two"
+            "three three-low";
+        grid-template-columns: 2fr 2fr;
+    }
+}
+
+@media(max-width: 500px) {
+    .hero .hero-content {
+        grid-template-areas: "one"
+        "two"
+        "three"
+        "three-low";
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 2fr 2fr 2fr;
+        height: 35rem;
+    }
+}
+
+.hero .hero-content .live-comfortably-box {
+    grid-area: one;
+    background-image: url('../../img/header/home-img-1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero .hero-content .skincare-box {
+    grid-area: two;
+    background-image: url('../../img/header/home-img-2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.hero .hero-content .kitchen-box {
+    grid-area: three;
+    background-image: url('../../img/header/home-img-3.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero .hero-content .electronics-box {
+    grid-area: three-low;
+    background-image: url('../../img/header/home-img-4.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero .hero-content a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero .hero-content a p {
+    position: absolute;
+    z-index: 1;
+    bottom: 1rem;
+    left: 2rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.hero .hero-content .picture-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.308);
+    transition: all 0.4s;
+}
+
+.hero .hero-content .picture-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.582);
+}
