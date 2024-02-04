@@ -7,25 +7,25 @@ function Hero() {
         <div className='container'>
             <div className='hero-content'>
                 <div className='live-comfortably-box'>
-                    <Link to='/'>
+                    <Link to='/house'>
                         <p>Live Comfortably</p>
                         <div className='picture-overlay'></div>
                     </Link>
                 </div>
                 <div className='skincare-box'>
-                    <Link to='/'>
+                    <Link to='/skincare'>
                         <p>Skincare</p>
                         <div className='picture-overlay'></div>
                     </Link>
                 </div>
                 <div className='kitchen-box'>
-                    <Link to='/'>
+                    <Link to='/kitchen'>
                         <p>Kitchen</p>
                         <div className='picture-overlay'></div>
                     </Link>
                 </div>
                 <div className='electronics-box'>
-                    <Link to='/'>
+                    <Link to='/electronics'>
                         <p>Electronics</p>
                         <div className='picture-overlay'></div>
                     </Link>
