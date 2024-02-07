@@ -13,7 +13,7 @@ function Products() {
                 <h4>Products we are proud of</h4>
                 <div className='products-grid'>
                     {products.map(product => (
-                        <Product title={product.title} price={product.price} img={product.img} id={product.id}/>
+                        <Product key={product.id} title={product.title} price={product.price} img={product.img} id={product.id}/>
                     ))}
                 </div>
             </div>
