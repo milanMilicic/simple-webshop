@@ -7,6 +7,10 @@
     font-family: 'Blinker', sans-serif;
 }
 
+body {
+    position: relative;
+}
+
 .container {
     max-width: 1200px;
     margin: 0px auto;

@@ -9,6 +9,12 @@ function Navbar() {
 
     const [active, setActive] = useState(false);
 
+    if(active){ 
+        document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+    } else {
+        document.getElementsByTagName('body')[0].style.removeProperty('overflow-y');
+    }
+
     return (
         <>
             <nav>
