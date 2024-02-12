@@ -2,6 +2,7 @@ import Banner1 from "./components/Banners/Banner1/Banner1";
 import Banner2 from "./components/Banners/Banner2/Banner2";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
+import Newsletter from "./components/Newsletter/Newsletter";
 import Products from "./components/Products/Products";
 import Trending from "./components/Trending/Trending";
 
@@ -14,6 +15,7 @@ function App() {
       <Banner1 />
       <Trending />
       <Banner2 />
+      <Newsletter />
     </>
   );
 }
