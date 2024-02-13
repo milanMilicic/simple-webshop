@@ -17,7 +17,7 @@ function Categories() {
                         </div>
                         <div className="categories-links">
                             <Link to='all'>All</Link>
-                            <Link to='furnitures'>Furnitures</Link>
+                            <Link to='furniture'>Furniture</Link>
                             <Link to='electronics'>Electronics</Link>
                             <Link to='lamps'>Lamps</Link>
                             <Link to='kitchen'>Kitchen</Link>
