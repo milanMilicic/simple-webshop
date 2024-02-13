@@ -1,21 +1,37 @@
-import Banner1 from "./components/Banners/Banner1/Banner1";
-import Banner2 from "./components/Banners/Banner2/Banner2";
-import Footer from "./components/Footer/Footer";
-import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import Newsletter from "./components/Newsletter/Newsletter";
-import Products from "./components/Products/Products";
-import Trending from "./components/Trending/Trending";
+import Footer from "./components/Footer/Footer";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Categories from "./pages/Categories/Categories";
+import CategoriesAll from "./components/Categories/CategoriesAll";
+import CategoriesFurnitures from "./components/Categories/CategoriesFurniture";
+import CategoriesElectronics from "./components/Categories/CategoriesElectronics";
+import CategoriesLamps from "./components/Categories/CategoriesLamps";
+import CategoriesKitchen from "./components/Categories/CategoriesKitchen";
+import CategoriesChairs from "./components/Categories/CategoriesChairs";
+import CategoriesSkinCare from "./components/Categories/CategoriesSkinCare";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Products />
-      <Banner1 />
-      <Trending />
-      <Banner2 />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/categories" element={<Categories />}>
+          <Route path="all" element={<CategoriesAll />} />
+          <Route path="furniture" element={<CategoriesFurnitures />} />
+          <Route path="electronics" element={<CategoriesElectronics />} />
+          <Route path="lamps" element={<CategoriesLamps />} />
+          <Route path="kitchen" element={<CategoriesKitchen />} />
+          <Route path="chairs" element={<CategoriesChairs />} />
+          <Route path="skin-care" element={<CategoriesSkinCare />} />
+        </Route>
+
+      </Routes>
+
       <Newsletter />
       <Footer />
     </>
