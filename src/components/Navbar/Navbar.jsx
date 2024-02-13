@@ -62,8 +62,8 @@ function Navbar() {
                 </div>
                 <div className='sidemenu-links'>
                     <ul>
-                        <li><Link onClick={() => setActive(!active)} to='/'>CATEGORIES</Link></li>
-                        <li><Link onClick={() => setActive(!active)} to='/'>LAMPS</Link></li>
+                        <li><Link onClick={() => setActive(!active)} to='/categories/all'>CATEGORIES</Link></li>
+                        <li><Link onClick={() => setActive(!active)} to='/categories/lamps'>LAMPS</Link></li>
                         <li><Link onClick={() => setActive(!active)} to='/'>PRODUCT PAGE</Link></li>
                         <li><Link onClick={() => setActive(!active)} to='/'>CONTACT US</Link></li>
                     </ul>
