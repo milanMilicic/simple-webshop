@@ -34,12 +34,14 @@ function Navbar() {
                 <div className="container">
                     <div className={`navbar-content ${scrollY > 100 ? 'scroll-active' : ''}`}>
                         <div id="logo">
-                            <img src={logo} alt="Logo" />
+                            <Link to='/'>
+                                <img src={logo} alt="Logo" />
+                            </Link>
                         </div>
                         <div className="menu-links">
                             <ul>
-                                <li><Link to='/categories'>CATEGORIES</Link></li>
-                                <li><Link to='/product'>PRODUCT PAGE</Link></li>
+                                <li><Link to='/categories/all'>CATEGORIES</Link></li>
+                                <li><Link to='/categories/product/19'>PRODUCT PAGE</Link></li>
                                 <li><FaShoppingCart size={20} /></li>
                             </ul>
                         </div>
