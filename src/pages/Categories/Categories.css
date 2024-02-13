@@ -1,0 +1,58 @@
+.categories {
+    padding-top: 10rem;
+}
+
+.categories .categories-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.categories .categories-content .categories-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.categories .categories-content .categories-title a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.categories .categories-content .categories-title h3 {
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.categories .categories-content .categories-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+@media(max-width: 400px) {
+    .categories .categories-content .categories-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+    }
+}
+
+.categories .categories-content .categories-links a {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    border: 2px solid rgb(160, 159, 159);
+}
+
+.categories .categories-content .categories-links a:hover {
+    border-color: rgb(92, 92, 92);
+}
