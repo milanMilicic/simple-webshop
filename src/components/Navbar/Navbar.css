@@ -11,6 +11,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.2s linear;
+    height: 5rem;   /* added because of smooth transition */
+}
+
+.navbar-content.scroll-active {
+    height: 3rem;
 }
 
 .navbar-content #logo {

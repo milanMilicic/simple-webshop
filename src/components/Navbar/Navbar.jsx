@@ -3,23 +3,36 @@ import { FaShoppingCart, FaBars } from 'react-icons/fa'
 import { FaX } from 'react-icons/fa6'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect  } from 'react'
 
 function Navbar() {
 
     const [active, setActive] = useState(false);
+    const [scrollY, setScrollY] = useState(0);
 
-    if(active){ 
+    if (active) {
         document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
     } else {
         document.getElementsByTagName('body')[0].style.removeProperty('overflow-y');
     }
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+        
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <>
             <nav>
                 <div className="container">
-                    <div className="navbar-content">
+                    <div className={`navbar-content ${scrollY > 100 ? 'scroll-active' : ''}`}>
                         <div id="logo">
                             <img src={logo} alt="Logo" />
                         </div>
@@ -47,10 +60,10 @@ function Navbar() {
                 </div>
                 <div className='sidemenu-links'>
                     <ul>
-                        <li><Link to='/'>CATEGORIES</Link></li>
-                        <li><Link to='/'>LAMPS</Link></li>
-                        <li><Link to='/'>PRODUCT PAGE</Link></li>
-                        <li><Link to='/'>CONTACT US</Link></li>
+                        <li><Link onClick={() => setActive(!active)} to='/'>CATEGORIES</Link></li>
+                        <li><Link onClick={() => setActive(!active)} to='/'>LAMPS</Link></li>
+                        <li><Link onClick={() => setActive(!active)} to='/'>PRODUCT PAGE</Link></li>
+                        <li><Link onClick={() => setActive(!active)} to='/'>CONTACT US</Link></li>
                     </ul>
                 </div>
             </div>
