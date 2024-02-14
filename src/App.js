@@ -11,6 +11,7 @@ import CategoriesLamps from "./components/Categories/CategoriesLamps";
 import CategoriesKitchen from "./components/Categories/CategoriesKitchen";
 import CategoriesChairs from "./components/Categories/CategoriesChairs";
 import CategoriesSkinCare from "./components/Categories/CategoriesSkinCare";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
           <Route path="skin-care" element={<CategoriesSkinCare />} />
         </Route>
 
+        <Route path="/categories/product/:id" element={<ProductDetails />} />
+      
       </Routes>
 
       <Newsletter />
