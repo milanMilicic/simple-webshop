@@ -14,6 +14,7 @@ function ProductDetails() {
 
     const [qty, setQty] = useState(1);
     const [totalPrice, setTotalPrice] = useState(product.price);
+    const [imgSrc, setImgSrc] = useState('');
 
     let increase = () => {
         setQty((prevValue) => {
@@ -52,17 +53,17 @@ function ProductDetails() {
                     <div className='main-part'>
                         <div className='left-side'>
                             <div className='big-picture'>
-                                <img src={product.img} alt="Main" />
+                                <img src={imgSrc || product.img} alt="Main" />
                             </div>
                             <div className='small-pictures'>
                                 <div className='pic'>
-                                    <img src={product.img} alt={product.title} />
+                                    <img src={product.img} alt={product.title} onMouseOver={() => setImgSrc(product.img)} />
                                 </div>
                                 <div className='pic'>
-                                    <img src={product.otherImgs[0]} alt={product.title} />
+                                    <img src={product.otherImgs[0]} alt={product.title} onMouseOver={() => setImgSrc(product.otherImgs[0])} />
                                 </div>
                                 <div className='pic'>
-                                    <img src={product.otherImgs[1]} alt={product.title} />
+                                    <img src={product.otherImgs[1]} alt={product.title} onMouseOver={() => setImgSrc(product.otherImgs[1])} />
                                 </div>
                             </div>
                         </div>
@@ -110,7 +111,7 @@ function ProductDetails() {
                         </div>
                         <div className='slider'>
                             {productsSlider.map(item => (
-                                <Product key={item.id} title={item.title} price={item.price} img={item.img} id={item.id}/>
+                                <Product key={item.id} title={item.title} price={item.price} img={item.img} id={item.id} />
                             ))}
                         </div>
                     </div>
