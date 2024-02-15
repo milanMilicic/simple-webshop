@@ -32,11 +32,13 @@
 
 .product-page .product-page-content .main-part .left-side .big-picture {
     width: 25rem;
+    height: 400px;
 }
 
 @media(max-width: 500px) {
     .product-page .product-page-content .main-part .left-side .big-picture {
         width: fit-content;
+        height: 300px;
     }
 }
 
