@@ -8,22 +8,22 @@ function Footer() {
                 <div className="footer-content">
                     <ul>
                         <li>
-                            <Link to='/about'>About</Link>
+                            <Link to='/'>About</Link>
                         </li>
                         <li>
-                            <Link to='/store-locator'>Store Locator</Link>
+                            <Link to='/'>Store Locator</Link>
                         </li>
                         <li>
-                            <Link to='/faq'>FAQs</Link>
+                            <Link to='/'>FAQs</Link>
                         </li>
                         <li>
-                            <Link to='/news'>News</Link>
+                            <Link to='/'>News</Link>
                         </li>
                         <li>
-                            <Link to='/careers'>Careers</Link>
+                            <Link to='/'>Careers</Link>
                         </li>
                         <li>
-                            <Link to='/contact'>Contact Us</Link>
+                            <Link to='/'>Contact Us</Link>
                         </li>
                     </ul>
                 </div>
