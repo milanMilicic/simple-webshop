@@ -1,16 +1,18 @@
 import logo from '../../img/logo.png'
+import emptyCart from '../../img/cart/empty-cart.png'
 import { FaShoppingCart, FaBars } from 'react-icons/fa'
 import { FaX } from 'react-icons/fa6'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import { useState, useEffect  } from 'react'
+import { useState, useEffect } from 'react'
 
 function Navbar() {
 
     const [active, setActive] = useState(false);
+    const [shoppingCartActive, setShoppingCartActive] = useState(false);
     const [scrollY, setScrollY] = useState(0);
 
-    if (active) {
+    if (active || shoppingCartActive) {
         document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
     } else {
         document.getElementsByTagName('body')[0].style.removeProperty('overflow-y');
@@ -20,7 +22,7 @@ function Navbar() {
         const handleScroll = () => {
             setScrollY(window.scrollY);
         };
-        
+
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -42,13 +44,13 @@ function Navbar() {
                             <ul>
                                 <li><Link to='/categories/all'>CATEGORIES</Link></li>
                                 <li><Link to='/categories/product/19'>PRODUCT PAGE</Link></li>
-                                <li><FaShoppingCart size={20} /></li>
+                                <li><FaShoppingCart onClick={() => setShoppingCartActive(!shoppingCartActive)} size={20} /></li>
                             </ul>
                         </div>
                         {/* mobile menu icons */}
                         <div className='mobile-menu'>
                             <ul>
-                                <li><FaShoppingCart size={20} /></li>
+                                <li><FaShoppingCart onClick={() => setShoppingCartActive(!shoppingCartActive)} size={20} /></li>
                                 <li><FaBars onClick={() => setActive(!active)} size={20} /></li>
                             </ul>
                         </div>
@@ -69,8 +71,20 @@ function Navbar() {
                     </ul>
                 </div>
             </div>
+            {/* shopping cart */}
+            <div className={`shopping-cart ${shoppingCartActive ? `shopping-cart-show` : ``}`}>
+                <div className='shopping-cart-header'>
+                    <p>Your Shopping Cart (0)</p>
+                    <FaX id='shopping-close-btn' onClick={() => setShoppingCartActive(!shoppingCartActive)} size={20} />
+                </div>
+                <div className='shopping-cart-content'>
+                    <img src={emptyCart} alt="Empty Cart" />
+                    <p>Your cart is empty</p>
+                    <button onClick={() => setShoppingCartActive(!shoppingCartActive)}>Keep Browsing</button>
+                </div>
+            </div>
             {/* overlay */}
-            <div className={`overlay ${active ? `overlay-show` : ``}`}></div>
+            <div className={`overlay ${active ? `overlay-show` : shoppingCartActive ? `overlay-show` : ``}`}></div>
         </>
     )
 }
