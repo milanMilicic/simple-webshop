@@ -52,6 +52,7 @@ function ProductDetails() {
     }
 
     useEffect(() => {
+        setImgSrc(product.img);
         setTotalPrice(product.price * qty);
     }, [product.price, qty]);
 
