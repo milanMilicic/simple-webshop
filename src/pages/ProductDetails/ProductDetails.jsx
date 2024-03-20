@@ -4,10 +4,14 @@ import { items } from '../../Products';
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa6'
 import Product from '../../components/Products/Product';
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../slices/cartSlice';
+import { toast } from 'react-toastify'
 
 function ProductDetails() {
 
     const { id } = useParams();
+    const dispatch = useDispatch();
 
     let product = items.find(item => item.id == id);
     let productsSlider = items.filter((item) => item.id > 8);
@@ -40,6 +44,11 @@ function ProductDetails() {
     let slideLeft = () => {
         let left = document.querySelector('.slider');
         left.scrollLeft = left.scrollLeft + 250;
+    }
+
+    const addToCartHandler = () => {
+        dispatch(addToCart({...product, qty}));
+        toast.success('Item added to cart');
     }
 
     useEffect(() => {
@@ -80,7 +89,7 @@ function ProductDetails() {
                                 <p>$ {totalPrice}.00</p>
                             </div>
                             <div className='buttons'>
-                                <div className='button' id='add'>ADD TO CART</div>
+                                <div className='button' id='add' onClick={addToCartHandler}>ADD TO CART</div>
                                 <div className='button' id='buy'>BUY NOW</div>
                             </div>
                         </div>
