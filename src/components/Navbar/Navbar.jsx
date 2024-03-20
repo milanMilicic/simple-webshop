@@ -14,7 +14,12 @@ function Navbar() {
     const [shoppingCartActive, setShoppingCartActive] = useState(false);
     const [scrollY, setScrollY] = useState(0);
 
+
     const cart = useSelector(state => state.cart);
+
+    let totalQty = cart.cartItems.reduce((sum, item) => {
+        return sum + item.qty;
+    }, 0);
 
     if (active || shoppingCartActive) {
         document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
@@ -48,13 +53,19 @@ function Navbar() {
                             <ul>
                                 <li><Link to='/categories/all'>CATEGORIES</Link></li>
                                 <li><Link to='/categories/product/19'>PRODUCT PAGE</Link></li>
-                                <li><FaShoppingCart onClick={() => setShoppingCartActive(!shoppingCartActive)} size={20} /></li>
+                                <li id='shopping-cart-icon'>
+                                    <FaShoppingCart onClick={() => setShoppingCartActive(!shoppingCartActive)} size={20} />
+                                    <span id='shopping-cart-item-number'>{totalQty}</span>
+                                </li>
                             </ul>
                         </div>
                         {/* mobile menu icons */}
                         <div className='mobile-menu'>
                             <ul>
-                                <li><FaShoppingCart onClick={() => setShoppingCartActive(!shoppingCartActive)} size={20} /></li>
+                                <li id='shopping-cart-icon'>
+                                    <FaShoppingCart onClick={() => setShoppingCartActive(!shoppingCartActive)} size={20} />
+                                    <span id='shopping-cart-item-number'>{totalQty}</span>
+                                </li>
                                 <li><FaBars onClick={() => setActive(!active)} size={20} /></li>
                             </ul>
                         </div>

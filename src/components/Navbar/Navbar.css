@@ -52,6 +52,22 @@ nav {
     text-decoration: underline;
 }
 
+#shopping-cart-icon {
+    position: relative;
+}
+
+#shopping-cart-icon #shopping-cart-item-number {
+    position: absolute;
+    top: -20px;
+    right: -15px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+}
+
 /* mobile menu icons */
 .navbar-content .mobile-menu {
     display: none;
