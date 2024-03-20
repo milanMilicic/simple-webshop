@@ -12,6 +12,8 @@ import CategoriesKitchen from "./components/Categories/CategoriesKitchen";
 import CategoriesChairs from "./components/Categories/CategoriesChairs";
 import CategoriesSkinCare from "./components/Categories/CategoriesSkinCare";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
 
       <Newsletter />
       <Footer />
+      <ToastContainer />
     </>
   );
 }

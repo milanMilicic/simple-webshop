@@ -5,12 +5,16 @@ import { FaX } from 'react-icons/fa6'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import Item from '../Item/Item'
 
 function Navbar() {
 
     const [active, setActive] = useState(false);
     const [shoppingCartActive, setShoppingCartActive] = useState(false);
     const [scrollY, setScrollY] = useState(0);
+
+    const cart = useSelector(state => state.cart);
 
     if (active || shoppingCartActive) {
         document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
@@ -74,14 +78,31 @@ function Navbar() {
             {/* shopping cart */}
             <div className={`shopping-cart ${shoppingCartActive ? `shopping-cart-show` : ``}`}>
                 <div className='shopping-cart-header'>
-                    <p>Your Shopping Cart (0)</p>
+                    <p>Your Shopping Cart ({cart.cartItems ? cart.cartItems.length : 0})</p>
                     <FaX id='shopping-close-btn' onClick={() => setShoppingCartActive(!shoppingCartActive)} size={20} />
                 </div>
-                <div className='shopping-cart-content'>
-                    <img src={emptyCart} alt="Empty Cart" />
-                    <p>Your cart is empty</p>
-                    <button onClick={() => setShoppingCartActive(!shoppingCartActive)}>Keep Browsing</button>
-                </div>
+                {cart.cartItems.length !== 0 ?
+                    (<div className='shopping-cart-content'>
+                        {cart.cartItems.map(item => (
+                            <Item item={item}/>
+                        ))}
+                        <div className='receipt'>
+                            <div className='subtotal'>
+                                <p>Subtotal</p>
+                                <p>${cart.itemsPrice}</p>
+                            </div>
+                            <div className='checkout'>
+                                <button onClick={() => setShoppingCartActive(!shoppingCartActive)} type='button'>Go To Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                    ) :
+                    (<div className='shopping-cart-empty'>
+                        <img src={emptyCart} alt="Empty Cart" />
+                        <p>Your cart is empty</p>
+                        <button onClick={() => setShoppingCartActive(!shoppingCartActive)}>Keep Browsing</button>
+                    </div>
+                    )}
             </div>
             {/* overlay */}
             <div className={`overlay ${active ? `overlay-show` : shoppingCartActive ? `overlay-show` : ``}`}></div>
