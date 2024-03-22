@@ -95,7 +95,7 @@ function Navbar() {
                 {cart.cartItems.length !== 0 ?
                     (<div className='shopping-cart-content'>
                         {cart.cartItems.map(item => (
-                            <Item item={item}/>
+                            <Item key={item.id} item={item} />
                         ))}
                         <div className='receipt'>
                             <div className='subtotal'>

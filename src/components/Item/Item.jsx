@@ -8,7 +8,7 @@ import { addToCart } from '../../slices/cartSlice';
 function Item({ item }) {
 
   const [itemQty, setItemQty] = useState(item.qty);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(addDecimals(item.price * item.qty));
   const dispatch = useDispatch();
 
   const removeFromCartHandler = (id) => {
@@ -26,8 +26,11 @@ function Item({ item }) {
   };
 
   useEffect(() => {
-    const calculatedPrice = addDecimals(item.price * itemQty);
-    setTotalPrice(calculatedPrice);
+    setItemQty(item.qty);
+    setTotalPrice(addDecimals(item.price * item.qty));
+  }, [item])
+
+  useEffect(() => {
     dispatch(addToCart({ ...item, qty: itemQty }));
   }, [itemQty]);
 
